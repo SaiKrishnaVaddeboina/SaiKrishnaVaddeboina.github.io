@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Predicting Student Depression Risk — an ethical ML pipeline using Random Forest, Logistic Regression, and XGBoost on 27K+ student records. By Sai Krishna Vaddeboina." />
+  <title>Predicting Student Depression Risk — Sai Krishna Vaddeboina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='52' font-weight='700' text-anchor='middle' fill='white'%3ESV%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">SV</span>
+        <span class="logo-text">Sai Vaddeboina</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-ghost btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="case-study">
+    <header class="cs-header">
+      <div class="container">
+        <a href="index.html#projects" class="cs-back">← Back to all projects</a>
+        <div class="cs-meta">
+          <span class="cs-badge">Machine Learning</span>
+          <span class="cs-badge">Ethical AI</span>
+          <span class="cs-badge">Higher Education</span>
+        </div>
+        <h1 class="cs-title">
+          Predicting<br />
+          <span class="gradient-text">Student Depression Risk</span>
+        </h1>
+        <p class="cs-tagline">
+          A multi-model ML pipeline on 27,000+ student records — built to support early intervention, not surveillance.
+        </p>
+
+        <div class="cs-credits">
+          <div class="credit-block">
+            <span class="credit-label">Course</span>
+            <span>Business Applications In Machine Learning</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Institution</span>
+            <span>Worcester Polytechnic Institute</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Period</span>
+            <span>Jan 2025 – Apr 2025</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Type</span>
+            <span>End-to-end ML · Coursework</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="cs-section">
+      <div class="container container-narrow">
+
+        <div class="cs-stats-grid">
+          <div class="cs-stat">
+            <div class="cs-stat-num">27K+</div>
+            <div class="cs-stat-label">Student records analyzed</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">87%</div>
+            <div class="cs-stat-label">Model accuracy</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">88%</div>
+            <div class="cs-stat-label">Recall (true positives)</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">0.92</div>
+            <div class="cs-stat-label">AUC-ROC</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">3</div>
+            <div class="cs-stat-label">Models compared</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">XGBoost</div>
+            <div class="cs-stat-label">Best performer</div>
+          </div>
+        </div>
+
+        <div class="cs-block">
+          <span class="cs-section-tag">The Problem</span>
+          <h2>Mental health crises in higher ed are usually caught too late.</h2>
+          <p>
+            By the time a student reaches the campus counseling center, the academic and personal damage
+            is often already done. The signals were there earlier — sleep patterns, GPA decline, academic
+            pressure, family stressors — but no one was watching the right combination.
+          </p>
+          <p>
+            This project asks: <em>can a model surface elevated depression risk early enough to prompt a
+            voluntary outreach — not as surveillance, but as a flag for human counselors to follow up?</em>
+          </p>
+        </div>
+
+        <div class="cs-block">
+          <span class="cs-section-tag">The Approach</span>
+          <h2>Three models, one shared feature pipeline.</h2>
+
+          <div class="cs-pipeline">
+            <div class="pipeline-step">
+              <div class="step-num">01</div>
+              <h3>Logistic Regression</h3>
+              <p>Baseline model. Interpretable coefficients map directly onto risk factors — useful for explaining "why" to a domain expert who isn't a data scientist.</p>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">02</div>
+              <h3>Random Forest</h3>
+              <p>Ensemble of decision trees handles non-linear feature interactions natively. Provides feature importance rankings that informed the final feature engineering pass.</p>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">03</div>
+              <h3>XGBoost</h3>
+              <p>Gradient-boosted tree ensemble. Best performer on AUC and recall. Tuned via grid search over <code>max_depth</code>, <code>learning_rate</code>, and <code>n_estimators</code>.</p>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">04</div>
+              <h3>Stratified K-Fold CV</h3>
+              <p>5-fold cross-validation stratified on the target class to handle the natural class imbalance (depressed vs. non-depressed students). Ensures every fold sees both classes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-block">
+          <span class="cs-section-tag">Feature Engineering</span>
+          <h2>The signal is in the interactions.</h2>
+
+          <div class="cs-feature-grid">
+            <div class="feature-cell">
+              <h4>Categorical encoding</h4>
+              <p>One-hot encoding for nominal features (degree program, dietary habits); ordinal encoding for naturally ranked features (sleep quality, academic pressure on a 1–5 scale).</p>
+            </div>
+            <div class="feature-cell">
+              <h4>Binning continuous variables</h4>
+              <p>Age and GPA binned into intervals to capture non-linear effects — a 0.1 GPA difference matters very differently at 3.9 vs. 2.1.</p>
+            </div>
+            <div class="feature-cell">
+              <h4>Interaction variables</h4>
+              <p>Hand-crafted interactions like <code>academic_pressure × sleep_hours</code> and <code>financial_stress × family_history</code> — capturing compound risk that no single feature surfaces alone.</p>
+            </div>
+            <div class="feature-cell">
+              <h4>Class imbalance handling</h4>
+              <p>Used <code>scale_pos_weight</code> in XGBoost and <code>class_weight='balanced'</code> in scikit-learn models to prevent the majority class from dominating the loss.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-block">
+          <span class="cs-section-tag">Results</span>
+          <h2>XGBoost wins on recall — and recall is what matters here.</h2>
+          <p>
+            For a depression-screening model, <strong>false negatives are the costly error</strong>. Missing
+            a student who needs help is worse than over-flagging a few who don't. So we optimized for
+            <strong>recall</strong> rather than raw accuracy, with AUC as the secondary tiebreaker.
+          </p>
+
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Accuracy</th>
+                  <th>Recall</th>
+                  <th>AUC</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>Logistic Regression</strong></td><td>~82%</td><td>~80%</td><td>~0.86</td><td>Most interpretable; weakest at non-linear interactions</td></tr>
+                <tr><td><strong>Random Forest</strong></td><td>~85%</td><td>~84%</td><td>~0.89</td><td>Strong baseline; good feature-importance signal</td></tr>
+                <tr><td><strong>XGBoost</strong></td><td><strong>87%</strong></td><td><strong>88%</strong></td><td><strong>0.92</strong></td><td>Best on all metrics; selected for deployment narrative</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="cs-block">
+          <span class="cs-section-tag">The Ethics Layer</span>
+          <h2>A high-recall model is not automatically a deployable system.</h2>
+          <p>
+            The deliverable wasn't just the model — it was a set of <strong>ethical guardrails</strong> for
+            how a system like this should and shouldn't be used in higher education:
+          </p>
+          <ul class="cs-list">
+            <li><strong>Voluntary participation</strong> — students should opt in, with full disclosure of what's being modeled and why.</li>
+            <li><strong>Output goes to humans, not actions</strong> — the model surfaces flags for trained counselors to evaluate, never triggers automated interventions.</li>
+            <li><strong>No academic consequences</strong> — flags must be firewalled from grading, financial aid, and disciplinary processes.</li>
+            <li><strong>Right to explanation</strong> — students flagged should be able to ask "why" and get a meaningful answer (this is where the Logistic Regression baseline keeps its value).</li>
+            <li><strong>Continuous bias auditing</strong> — re-evaluate model performance across demographic subgroups every term to catch drift and disparate impact.</li>
+          </ul>
+        </div>
+
+        <div class="cs-block">
+          <span class="cs-section-tag">What I Learned</span>
+          <h2>The hardest part of an ML project is rarely the model.</h2>
+          <p>
+            The XGBoost training took an afternoon. The <em>recommendations</em> — which guardrails matter,
+            who gets to see the output, what the failure modes look like in practice — took the rest of the
+            project. That's the real work in applied ML, and it's the part you can't automate.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="cs-footer">
+      <div class="container container-narrow">
+        <div class="cs-cta">
+          <h3>More projects to explore</h3>
+          <div class="cs-cta-actions">
+            <a href="mbta-fraud-detection.html" class="btn btn-primary">MBTA Fraud Detection →</a>
+            <a href="blockchain-property.html" class="btn btn-ghost">Blockchain dApp →</a>
+            <a href="index.html#projects" class="btn btn-ghost">All projects</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <script src="script.js"></script>
+</body>
+</html>

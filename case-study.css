@@ -1,0 +1,383 @@
+/* ===========================================================
+   Case Study sub-page styles
+   =========================================================== */
+
+.container-narrow {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.case-study {
+  padding-top: 80px;
+}
+
+/* ============= Header ============= */
+.cs-header {
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--gradient-soft), transparent);
+}
+.cs-back {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 32px;
+  display: inline-block;
+  transition: color var(--transition);
+}
+.cs-back:hover { color: var(--accent); }
+.cs-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.cs-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+.cs-title {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.cs-tagline {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  font-style: italic;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+.cs-credits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  padding: 28px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.credit-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.credit-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-mute);
+  font-weight: 600;
+}
+.credit-block span:not(.credit-label) {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ============= Sections ============= */
+.cs-section { padding: 60px 0; }
+
+.cs-block {
+  margin-bottom: 80px;
+}
+.cs-block:last-child { margin-bottom: 0; }
+
+.cs-section-tag {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+  padding: 5px 12px;
+  background: var(--gradient-soft);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.cs-block h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 22px;
+  line-height: 1.25;
+}
+
+.cs-block p {
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  line-height: 1.7;
+}
+.cs-block p strong { color: var(--text); font-weight: 600; }
+.cs-block p em { color: var(--accent); font-style: normal; }
+
+.cs-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 24px 0;
+}
+.cs-list li {
+  position: relative;
+  padding: 14px 0 14px 32px;
+  color: var(--text-dim);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.6;
+}
+.cs-list li:last-child { border-bottom: none; }
+.cs-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
+  background: var(--gradient);
+  box-shadow: var(--shadow-glow);
+}
+.cs-list li strong { color: var(--text); font-weight: 600; }
+.cs-list code,
+.cs-block code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  padding: 2px 6px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  color: var(--accent);
+}
+
+/* ============= Stats Grid ============= */
+.cs-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 80px;
+  padding: 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+}
+.cs-stat {
+  text-align: center;
+  padding: 14px;
+}
+.cs-stat-num {
+  font-size: 1.9rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+.cs-stat-label {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.4;
+}
+
+/* ============= Pipeline Steps ============= */
+.cs-pipeline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 32px;
+}
+@media (max-width: 768px) {
+  .cs-pipeline { grid-template-columns: 1fr; }
+}
+.pipeline-step {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 26px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition);
+}
+.pipeline-step:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.step-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+.pipeline-step h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.pipeline-step p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ============= Feature Grid ============= */
+.cs-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 32px;
+}
+@media (max-width: 768px) {
+  .cs-feature-grid { grid-template-columns: 1fr; }
+}
+.feature-cell {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.feature-cell h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+.feature-cell p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+/* ============= Tables ============= */
+.cs-table-wrap {
+  overflow-x: auto;
+  margin-top: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+}
+.cs-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+.cs-table th,
+.cs-table td {
+  text-align: left;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--border);
+}
+.cs-table th {
+  background: var(--bg-elev);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cs-table td {
+  color: var(--text-dim);
+}
+.cs-table tr:last-child td { border-bottom: none; }
+.cs-table tr:hover td { background: var(--bg-elev); color: var(--text); }
+.cs-table strong { color: var(--accent); font-family: 'JetBrains Mono', monospace; }
+
+/* ============= Segment Cards ============= */
+.cs-segment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+@media (max-width: 600px) {
+  .cs-segment-grid { grid-template-columns: 1fr; }
+}
+.segment-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  transition: all var(--transition);
+}
+.segment-card.highlight {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.08));
+  border-color: var(--accent);
+  box-shadow: var(--shadow-glow);
+}
+.segment-num {
+  font-size: 2.4rem;
+  font-weight: 800;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.segment-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--accent);
+  margin: 8px 0;
+  letter-spacing: 0.05em;
+}
+.segment-label {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+/* ============= Role Block ============= */
+.role-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+}
+
+/* ============= Footer CTA ============= */
+.cs-footer {
+  border-top: 1px solid var(--border);
+  padding: 80px 0;
+  margin-top: 60px;
+  background: var(--bg-elev);
+}
+.cs-cta {
+  text-align: center;
+}
+.cs-cta h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+.cs-cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .cs-header { padding: 60px 0 40px; }
+  .cs-stats-grid { padding: 20px; gap: 12px; }
+  .cs-stat-num { font-size: 1.5rem; }
+  .role-block { padding: 28px; }
+  .cs-credits { padding: 20px; gap: 14px; }
+}

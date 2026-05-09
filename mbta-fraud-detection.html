@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MBTA Fare Evasion Detection — Hidden Markov Model and Multi-Signal Anomaly Scoring framework. WPI Capstone sponsored by Masabi × Gemsen." />
+  <title>MBTA Fare Evasion Detection — Sai Krishna Vaddeboina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="case-study.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='52' font-weight='700' text-anchor='middle' fill='white'%3ESV%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation -->
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-mark">SV</span>
+        <span class="logo-text">Sai Vaddeboina</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="index.html" class="btn btn-ghost btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <article class="case-study">
+    <header class="cs-header">
+      <div class="container">
+        <a href="index.html#projects" class="cs-back">← Back to all projects</a>
+        <div class="cs-meta">
+          <span class="cs-badge">Capstone · Industry-Sponsored</span>
+          <span class="cs-badge">Machine Learning</span>
+          <span class="cs-badge">Behavioral Analytics</span>
+        </div>
+        <h1 class="cs-title">
+          Detecting Inspector-Triggered Ticket Purchase Fraud<br />
+          <span class="gradient-text">on MBTA Commuter Rail</span>
+        </h1>
+        <p class="cs-tagline">
+          A Hidden Markov Model and Multi-Signal Anomaly Scoring Framework for Behavioral Fare-Evasion Detection
+        </p>
+
+        <div class="cs-credits">
+          <div class="credit-block">
+            <span class="credit-label">Course</span>
+            <span>BUS 596 · MS FinTech Capstone</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Institution</span>
+            <span>Worcester Polytechnic Institute · School of Business</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Sponsors</span>
+            <span>Masabi × Gemsen</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Submitted</span>
+            <span>May 1, 2026</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Faculty Advisor</span>
+            <span>Professor Jim Ryan</span>
+          </div>
+          <div class="credit-block">
+            <span class="credit-label">Team</span>
+            <span>Daniel Duah · Bismark Kofi Sarfo Owusu · Sai Priya Malyala · Martin Thulani Milanzi · Sai Krishna Vaddeboina</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="cs-section">
+      <div class="container container-narrow">
+
+        <!-- Headline Stats -->
+        <div class="cs-stats-grid">
+          <div class="cs-stat">
+            <div class="cs-stat-num">2.9M+</div>
+            <div class="cs-stat-label">Activation–scan events analyzed</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">221K</div>
+            <div class="cs-stat-label">Unique riders profiled</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">15,195</div>
+            <div class="cs-stat-label">Evaders surfaced (rules missed)</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">20.5%</div>
+            <div class="cs-stat-label">Novelty rate vs. baseline</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">9-State</div>
+            <div class="cs-stat-label">HMM, BIC-selected from 70 fits</div>
+          </div>
+          <div class="cs-stat">
+            <div class="cs-stat-num">K=6</div>
+            <div class="cs-stat-label">Operational enforcement clusters</div>
+          </div>
+        </div>
+
+        <!-- The Problem -->
+        <div class="cs-block">
+          <span class="cs-section-tag">The Problem</span>
+          <h2>Mobile ticketing opened a fraud loophole that count-based rules can't see.</h2>
+          <p>
+            When a rider activates their MBTA ticket only <em>after</em> spotting an inspector — compressing
+            purchase, activation, and barcode scan into seconds — the inspector sees a valid ticket, the
+            system logs a compliant rider, and the agency takes an invisible revenue hit.
+          </p>
+          <p>
+            Masabi's existing <strong>Pattern</strong> rule engine flags riders with three or more sub-15s
+            activation-scan gaps in a 10-day window (Rule A) or sub-30s in 7 days (Rule B). The rules are
+            interpretable and operationally deployed — but by design, they're blind to three classes of evasion:
+          </p>
+          <ul class="cs-list">
+            <li><strong>Purchase compression</strong> — buying, activating, and scanning all within seconds upon inspector approach.</li>
+            <li><strong>Sequence alternation</strong> — fast-then-slow patterns that stay below the three-event threshold in any rolling window.</li>
+            <li><strong>Inspector reactivity</strong> — riders who activate <em>only</em> when an inspector is physically present.</li>
+          </ul>
+        </div>
+
+        <!-- The Approach -->
+        <div class="cs-block">
+          <span class="cs-section-tag">The Approach</span>
+          <h2>A four-layer pipeline that extends — not replaces — the existing rule engine.</h2>
+
+          <div class="cs-pipeline">
+            <div class="pipeline-step">
+              <div class="step-num">01</div>
+              <h3>Pattern Rule Engine (Baseline)</h3>
+              <p>Existing rule engine retained as descriptive baseline, flagging 58,752 riders (26.5%). Rule flags carry 20% weight in the final composite score — hybrid by design, not replacement.</p>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">02</div>
+              <h3>9-State Hidden Markov Model</h3>
+              <p>Categorical HMM trained over 7-symbol behavioral vocabulary. State count selected by Bayesian Information Criterion across 70 Baum-Welch fits over {2,3,4,5,7,9,11} states. Output: smooth posterior dominance scores per rider.</p>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">03</div>
+              <h3>Composite Anomaly Score</h3>
+              <p>Linear combination of four normalized signals: inspector reactivity (30%), HMM posterior (25%), gaming suspicion (25%), rule confirmation (20%). Continuous 0–1 risk score replaces binary flags.</p>
+            </div>
+            <div class="pipeline-step">
+              <div class="step-num">04</div>
+              <h3>K-Means Operational Clustering</h3>
+              <p>K=6 selected via silhouette analysis (peak 0.183). Segments the 61,869 anomaly-selected riders into operationally distinct enforcement archetypes — each mapped to a specific intervention.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Feature Engineering -->
+        <div class="cs-block">
+          <span class="cs-section-tag">Feature Engineering</span>
+          <h2>86 features across 14 logical groups.</h2>
+          <p>
+            Built a rider-level feature table of dimension <strong>221,382 × 87</strong>, spanning timing,
+            volume, personal-baseline deviation, line concentration, threshold-gaming ratios, inspector reactivity,
+            time-of-day, geographic spread, sequence entropy, HMM dwell, and weather context.
+          </p>
+          <div class="cs-feature-grid">
+            <div class="feature-cell">
+              <h4>Behavioral Vocabulary</h4>
+              <p>Discretized continuous activation-scan timing into 7 mutually exclusive symbols, including <code>PURCHASE_THEN_ACTIVATE_FAST</code> and <code>GAMING_THRESHOLD</code> — symbols Pattern's rule engine has no concept of.</p>
+            </div>
+            <div class="feature-cell">
+              <h4>Inspector Presence Proxy</h4>
+              <p>Inferred at <code>vehicle_id × 1-minute</code> granularity by aggregating handheld-scan density. Top 5% of buckets flagged as high-presence; per-rider <code>inspector_reactivity_gap</code> hits its theoretical max of 1.0 in the top 20 most reactive riders.</p>
+            </div>
+            <div class="feature-cell">
+              <h4>Gaming Suspicion Score</h4>
+              <p>Combines three timing hot-zone ratios (13–15s, 16–18s, 25–30s) with double weight on the 16–18s band — the most operationally costly "just above Rule A" zone.</p>
+            </div>
+            <div class="feature-cell">
+              <h4>Weather Enrichment</h4>
+              <p>Hourly Open-Meteo data joined for July–December 2025 to test whether evasion rate covaries with weather. Treated as cluster-profiling context, not a primary score signal.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HMM Findings -->
+        <div class="cs-block">
+          <span class="cs-section-tag">The HMM Finding</span>
+          <h2>Three habitual evasion archetypes — self-transitions above 0.97.</h2>
+          <p>
+            The fitted 9-state HMM identifies three latent states with self-transition probabilities exceeding 0.97 — direct empirical evidence that <strong>fare evasion is habitual, not situational</strong>. Once a rider enters an evasion state, they stay there.
+          </p>
+
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th>State</th>
+                  <th>Archetype</th>
+                  <th>Dominant Symbol</th>
+                  <th>Self-Trans.</th>
+                  <th>Pop. Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>S1</strong></td>
+                  <td>Habitual Evader</td>
+                  <td>ACTIVATE_FAST_HANDHELD (0.753)</td>
+                  <td>0.984</td>
+                  <td>26.6%</td>
+                </tr>
+                <tr>
+                  <td><strong>S0</strong></td>
+                  <td>Purchase-Triggered</td>
+                  <td>PURCHASE_THEN_ACTIVATE_FAST (0.367)</td>
+                  <td>0.971</td>
+                  <td>11.6%</td>
+                </tr>
+                <tr>
+                  <td><strong>S3</strong></td>
+                  <td>Moderate / Alternator</td>
+                  <td>ACTIVATE_FAST_HANDHELD (0.463)</td>
+                  <td>0.973</td>
+                  <td>23.0%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- The Result -->
+        <div class="cs-block">
+          <span class="cs-section-tag">The Result</span>
+          <h2>15,195 evaders surfaced that the rule engine completely misses.</h2>
+          <p>
+            The pipeline's central success metric — agreed at project inception — was a <strong>20% novelty rate</strong> (riders we flag that Pattern's rules do not). We delivered <strong>20.5%</strong>.
+          </p>
+
+          <div class="cs-segment-grid">
+            <div class="segment-card">
+              <div class="segment-num">40,151</div>
+              <div class="segment-pct">18.1%</div>
+              <div class="segment-label">Both HMM + Rules flagged</div>
+            </div>
+            <div class="segment-card highlight">
+              <div class="segment-num">15,195</div>
+              <div class="segment-pct">6.9% · NOVEL</div>
+              <div class="segment-label">HMM-only — Pattern misses entirely</div>
+            </div>
+            <div class="segment-card">
+              <div class="segment-num">18,601</div>
+              <div class="segment-pct">8.4%</div>
+              <div class="segment-label">Rules only (HMM doesn't flag)</div>
+            </div>
+            <div class="segment-card">
+              <div class="segment-num">147,435</div>
+              <div class="segment-pct">66.6%</div>
+              <div class="segment-label">Clean — neither system flags</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Operational Clusters -->
+        <div class="cs-block">
+          <span class="cs-section-tag">Operational Recommendations</span>
+          <h2>Six clusters → six distinct enforcement actions.</h2>
+          <p>
+            Continuous risk scores are operationally hard to act on. K-means at K=6 partitions the suspicious population into archetypes that map cleanly onto deployable interventions.
+          </p>
+
+          <div class="cs-table-wrap">
+            <table class="cs-table">
+              <thead>
+                <tr>
+                  <th>Cluster</th>
+                  <th>Riders</th>
+                  <th>Recommended Action</th>
+                  <th>Rationale</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>C2</strong></td><td>10,122</td><td>Immediate Action</td><td>100% Pattern-flagged · 58 fast events/rider · 162-day span</td></tr>
+                <tr><td><strong>C3</strong></td><td>22,199</td><td>Prioritise Review</td><td>97.6% Rule A · highest suspicion (0.942) · largest cluster</td></tr>
+                <tr><td><strong>C0</strong></td><td>7,136</td><td>Peak-Hour Enforcement</td><td>58.3% peak-hour activity · concentrated in rush trains</td></tr>
+                <tr><td><strong>C1</strong></td><td>12,606</td><td>Masabi Human Review</td><td>83.9% novel · primary validation target</td></tr>
+                <tr><td><strong>C4</strong></td><td>8,644</td><td>False-Positive Investigation</td><td>92.2% rule-flagged but suspicion only 0.249</td></tr>
+                <tr><td><strong>C5</strong></td><td>1,162</td><td>Monitor</td><td>Inspector-reactive activators · gaming score 1.639 (10× any other cluster)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Methodology Reflections -->
+        <div class="cs-block">
+          <span class="cs-section-tag">Engineering Decisions That Mattered</span>
+          <h2>Four sponsor-mandated adjustments shaped the pipeline.</h2>
+          <ul class="cs-list">
+            <li><strong>joblib parallelization</strong> — Baum-Welch fits across 8 cores via the loky backend. The standard <code>multiprocessing.spawn</code> backend hangs on the Windows training environment.</li>
+            <li><strong>FIFO observation cap</strong> — limited to 30 events per rider, reducing 1.9M observations to 1.1M while preserving the most recent rider behavior and avoiding numerical underflow on long sequences.</li>
+            <li><strong>Stratified 50/50 sampling</strong> — 65,376 training riders balanced between rule-flagged and unflagged populations, with a 5-event minimum threshold for inclusion.</li>
+            <li><strong>Posterior dominance over Viterbi</strong> — replaced the bimodal Viterbi-based scoring with smooth <code>predict_proba()</code> output, giving a continuous distribution that's actually operationally usable.</li>
+          </ul>
+        </div>
+
+        <!-- Future Work -->
+        <div class="cs-block">
+          <span class="cs-section-tag">What's Next</span>
+          <h2>From unsupervised pipeline → supervised system.</h2>
+          <p>
+            The unsupervised approach was deliberate — labels weren't available at inception. With the 60-rider Masabi review sheet returned with EVADER / NON-EVADER labels, the next phase pivots to:
+          </p>
+          <ul class="cs-list">
+            <li><strong>Positive-Unlabeled (PU) learning</strong> using rule flags as conservative positive seeds.</li>
+            <li><strong>Snorkel-style weak supervision</strong> with five labeling functions to scale training data beyond the human-validated subset.</li>
+            <li><strong>A new Pattern rule</strong> for inspector-reactive activators — closing one structural blind spot without requiring full pipeline deployment.</li>
+            <li><strong>Cross-agency generalization</strong> to other Masabi customer agencies on the Justride platform.</li>
+          </ul>
+        </div>
+
+        <!-- My Role -->
+        <div class="cs-block role-block">
+          <span class="cs-section-tag">My Role</span>
+          <h2>Five-person team. Industry partner. Real data.</h2>
+          <p>
+            This was a five-month, five-person collaboration with industry sponsorship from Masabi (mobile ticketing platform powering MBTA's Justride product) and Gemsen. Worked across the full pipeline: data-readiness audit, feature engineering, HMM training and tuning, anomaly score design, cluster interpretation, and the 38-page final report.
+          </p>
+          <p>
+            The work pushed me into territory I hadn't touched before — sequence modeling at scale, BIC-based model selection, building defensible composite scores in the absence of ground-truth labels — and grounded all of it in a real operational problem with a paying sponsor expecting a deliverable.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="cs-footer">
+      <div class="container container-narrow">
+        <div class="cs-cta">
+          <h3>Want to talk about ML, FinTech, or fraud detection?</h3>
+          <div class="cs-cta-actions">
+            <a href="https://github.com/SaiKrishnaVaddeboina/mbta-fare-evasion-detection" target="_blank" rel="noopener" class="btn btn-primary">View Code on GitHub</a>
+            <a href="mailto:vsaikrishna2024@gmail.com" class="btn btn-ghost">Email Me</a>
+            <a href="index.html#projects" class="btn btn-ghost">See more projects</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <script src="script.js"></script>
+</body>
+</html>

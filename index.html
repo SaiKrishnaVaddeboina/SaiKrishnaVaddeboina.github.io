@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sai Krishna Vaddeboina — FinTech graduate student at WPI. Portfolio of work in financial analytics, machine learning, blockchain, and business intelligence." />
+  <meta name="author" content="Sai Krishna Vaddeboina" />
+  <meta property="og:title" content="Sai Krishna Vaddeboina — FinTech Portfolio" />
+  <meta property="og:description" content="Financial analytics, ML, and blockchain projects from a WPI MS FinTech graduate." />
+  <meta property="og:type" content="website" />
+  <title>Sai Krishna Vaddeboina — FinTech Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%236366f1'/%3E%3Ctext x='50' y='68' font-family='Inter,sans-serif' font-size='52' font-weight='700' text-anchor='middle' fill='white'%3ESV%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-gradient"></div>
+  <div class="bg-grid"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-mark">SV</span>
+        <span class="logo-text">Sai Vaddeboina</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm">Hire Me</a>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge fade-in">
+            <span class="status-dot"></span>
+            <span>Available for full-time opportunities · Graduating May 2026</span>
+          </div>
+          <h1 class="hero-title fade-in">
+            <span class="gradient-text">Sai Krishna</span><br />
+            <span>Vaddeboina</span>
+          </h1>
+          <p class="hero-subtitle fade-in">
+            FinTech Graduate Student · Data &amp; Blockchain Builder
+          </p>
+          <p class="hero-description fade-in">
+            I bridge finance and technology — building data products, machine-learning models,
+            and blockchain applications that turn raw information into decisions. Currently pursuing
+            an MS in Financial Technology at <strong>Worcester Polytechnic Institute</strong>.
+          </p>
+          <div class="hero-actions fade-in">
+            <a href="#projects" class="btn btn-primary">
+              View My Work
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a href="Sai_Krishna_Vaddeboina_Resume.pdf" class="btn btn-ghost" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Download Resume
+            </a>
+          </div>
+          <div class="hero-stats fade-in">
+            <div class="stat">
+              <div class="stat-num">2.9M<span>+</span></div>
+              <div class="stat-label">Events Analyzed</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">15,195</div>
+              <div class="stat-label">Fraud Cases Surfaced</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">3.7<span>/4.0</span></div>
+              <div class="stat-label">GPA · WPI</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">7+</div>
+              <div class="stat-label">Shipped Projects</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual fade-in">
+          <div class="terminal">
+            <div class="terminal-header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+              <span class="terminal-title">~/portfolio — sai.py</span>
+            </div>
+            <pre class="terminal-body"><code><span class="c-key">class</span> <span class="c-cls">SaiKrishna</span>:
+    <span class="c-key">def</span> <span class="c-fn">__init__</span>(self):
+        self.role = <span class="c-str">"FinTech Graduate"</span>
+        self.school = <span class="c-str">"WPI"</span>
+        self.location = <span class="c-str">"Worcester, MA"</span>
+        self.skills = [
+            <span class="c-str">"Python"</span>, <span class="c-str">"SQL"</span>, <span class="c-str">"Tableau"</span>,
+            <span class="c-str">"Power BI"</span>, <span class="c-str">"Blockchain"</span>,
+            <span class="c-str">"Machine Learning"</span>
+        ]
+
+    <span class="c-key">def</span> <span class="c-fn">build</span>(self, idea):
+        <span class="c-key">return</span> data + insight + impact
+
+sai = SaiKrishna()
+<span class="c-cmt"># &gt;&gt;&gt; Ready to ship.</span></code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </a>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">01 · About</span>
+        <h2 class="section-title">A finance brain with an engineer's toolkit.</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I started in <strong>commerce and chartered accountancy</strong> in Hyderabad, India —
+            a world of ledgers, audit trails, and numbers that tell stories. Today, I'm completing
+            a Master's in <strong>Financial Technology</strong> at Worcester Polytechnic Institute,
+            translating that finance fluency into code, dashboards, and decentralized systems.
+          </p>
+          <p>
+            My current capstone — sponsored by <strong>Masabi × Gemsen</strong> — applies Hidden Markov
+            Models and multi-signal anomaly scoring to surface 15K+ fare-evading riders on the MBTA
+            commuter rail that the existing rule-based fraud system completely misses. It's the kind
+            of work I want to keep doing: real data, real impact, real machine learning.
+          </p>
+          <p>
+            My work sits at the intersection of three forces shaping modern finance:
+            <strong>data analytics</strong> that uncovers patterns markets miss,
+            <strong>machine learning</strong> that makes predictions actionable, and
+            <strong>blockchain</strong> that rebuilds trust from first principles.
+          </p>
+          <p>
+            I'm looking for opportunities where I can apply this stack to real-world problems —
+            quantitative analysis, FinTech product development, data science, or blockchain engineering.
+          </p>
+          <div class="about-tags">
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Blockchain</span>
+            <span class="tag">Financial Modeling</span>
+            <span class="tag">Business Intelligence</span>
+          </div>
+        </div>
+        <div class="about-card reveal">
+          <div class="info-row">
+            <span class="info-label">Location</span>
+            <span class="info-value">Worcester, MA</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Email</span>
+            <a href="mailto:vsaikrishna2024@gmail.com" class="info-value link">vsaikrishna2024@gmail.com</a>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Phone</span>
+            <span class="info-value">(774) 437-0403</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Degree</span>
+            <span class="info-value">MS FinTech, WPI</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Graduating</span>
+            <span class="info-value">May 2026</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">GPA</span>
+            <span class="info-value">3.7 / 4.0</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Languages</span>
+            <span class="info-value">English, Telugu, Hindi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section-alt" id="skills">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">02 · Skills</span>
+        <h2 class="section-title">My technical stack.</h2>
+        <p class="section-sub">Tools I use to move from data → decision → deployment.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3>Programming</h3>
+          <ul class="skill-list">
+            <li>Python <span>· Pandas, NumPy, Matplotlib</span></li>
+            <li>SQL <span>· MySQL, PostgreSQL</span></li>
+            <li>JavaScript <span>· Vue.js, Express.js</span></li>
+            <li>Solidity <span>· Smart Contracts</span></li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          </div>
+          <h3>Data &amp; Analytics</h3>
+          <ul class="skill-list">
+            <li>Tableau <span>· Dashboards, KPIs</span></li>
+            <li>Power BI <span>· DAX, Modeling</span></li>
+            <li>Excel <span>· Advanced, Pivot, VBA</span></li>
+            <li>NVivo 12 Plus <span>· Qualitative Analysis</span></li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Blockchain</h3>
+          <ul class="skill-list">
+            <li>Truffle Suite <span>· Smart Contract DevEnv</span></li>
+            <li>OpenZeppelin <span>· Secure Contracts</span></li>
+            <li>Web3.js <span>· dApp Integration</span></li>
+            <li>Chainlink <span>· Oracles</span></li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <h3>Tools &amp; DevOps</h3>
+          <ul class="skill-list">
+            <li>Git &amp; GitHub <span>· Version Control</span></li>
+            <li>Docker <span>· Containerization</span></li>
+            <li>Microsoft Azure <span>· Cloud</span></li>
+            <li>MongoDB <span>· NoSQL</span></li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h3>Machine Learning</h3>
+          <ul class="skill-list">
+            <li>Random Forest <span>· Classification</span></li>
+            <li>XGBoost <span>· Gradient Boosting</span></li>
+            <li>K-Means <span>· Clustering</span></li>
+            <li>Logistic Regression</li>
+          </ul>
+        </div>
+
+        <div class="skill-card reveal">
+          <div class="skill-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Finance Domain</h3>
+          <ul class="skill-list">
+            <li>Financial Analytics</li>
+            <li>SAP FI-CO</li>
+            <li>Chartered Accountancy <span>· Foundations</span></li>
+            <li>Equity &amp; Crypto Markets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">03 · Selected Work</span>
+        <h2 class="section-title">Projects that ship.</h2>
+        <p class="section-sub">Seven end-to-end builds spanning industry-sponsored ML research, blockchain dApps, quantitative finance, and business intelligence.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Featured — MBTA Capstone -->
+        <article class="project-card featured reveal">
+          <div class="project-meta">
+            <span class="project-num">01 · Featured</span>
+            <span class="project-type">Capstone · Industry-Sponsored ML</span>
+          </div>
+          <h3 class="project-title">Detecting Fare Evasion on MBTA Commuter Rail</h3>
+          <p class="project-tagline">A Hidden Markov Model + Multi-Signal Anomaly Scoring framework — sponsored by Masabi × Gemsen.</p>
+          <p class="project-description">
+            Built a four-layer machine-learning pipeline that surfaces <strong>15,195 fare-evading riders</strong>
+            that the existing rule-based fraud system completely misses — a 20.5% novelty rate that exceeded
+            our industry partner's success threshold. Processed 2.9M activation–scan events across 221K riders
+            on 13 commuter rail lines spanning April 2017–January 2026. Engineered 86 features across 14 logical
+            groups, built a 7-symbol behavioral vocabulary, and trained a 9-state Categorical HMM (selected by BIC
+            from 70 fits across {2,3,4,5,7,9,11} state counts). Combined HMM posteriors with an inspector-presence
+            proxy, gaming-suspicion score, and rule confirmation into a composite anomaly score, then segmented
+            the suspicious population into 6 operationally distinct enforcement archetypes via K-means.
+          </p>
+          <div class="project-stack">
+            <span>Python</span><span>Hidden Markov Models</span><span>hmmlearn</span>
+            <span>scikit-learn</span><span>K-Means</span><span>UMAP</span>
+            <span>Pandas</span><span>NumPy</span><span>AWS S3</span>
+            <span>joblib</span><span>Bayesian Information Criterion</span>
+          </div>
+          <div class="project-highlights">
+            <div class="highlight">
+              <strong>2.9M+</strong>
+              <span>Events Processed</span>
+            </div>
+            <div class="highlight">
+              <strong>20.5%</strong>
+              <span>Novelty Rate vs. Baseline</span>
+            </div>
+            <div class="highlight">
+              <strong>9-State</strong>
+              <span>HMM, BIC-Selected</span>
+            </div>
+            <div class="highlight">
+              <strong>0.97+</strong>
+              <span>Self-Transition (Habitual Evader)</span>
+            </div>
+            <div class="highlight">
+              <strong>K=6</strong>
+              <span>Operational Clusters</span>
+            </div>
+            <div class="highlight">
+              <strong>Masabi × Gemsen</strong>
+              <span>Industry Sponsors</span>
+            </div>
+          </div>
+          <div class="project-links">
+            <a href="mbta-fraud-detection.html" class="project-link-btn">
+              Read Full Case Study
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <span class="project-attribution">Team of 5 · WPI BUS 596 · Sponsored by Masabi × Gemsen</span>
+          </div>
+        </article>
+
+        <!-- Project 2: Blockchain dApp -->
+        <article class="project-card reveal">
+          <div class="project-meta">
+            <span class="project-num">02</span>
+            <span class="project-type">Blockchain · Full-Stack</span>
+          </div>
+          <h3 class="project-title">Blockchain Property Management dApp</h3>
+          <p class="project-description">
+            Decentralized real-estate platform with on-chain listings, multi-sig ownership transfers,
+            and role-based access. Smart contracts in Solidity (Truffle + OpenZeppelin); Vue.js + Express
+            + MongoDB stack; Chainlink oracles for real-time price validation; fully Dockerized.
+          </p>
+          <div class="project-stack">
+            <span>Solidity</span><span>Truffle</span><span>OpenZeppelin</span>
+            <span>Vue.js</span><span>Express.js</span><span>MongoDB</span>
+            <span>Web3.js</span><span>Chainlink</span><span>Docker</span>
+          </div>
+          <div class="project-metrics">
+            <div><strong>Multi-Sig</strong> Transfers</div>
+            <div><strong>RBAC</strong> Access</div>
+            <div><strong>Oracle</strong> Pricing</div>
+          </div>
+          <div class="project-card-link">
+            <a href="blockchain-property.html">Read full case study →</a>
+          </div>
+        </article>
+
+        <!-- Project 3: ML -->
+        <article class="project-card reveal">
+          <div class="project-meta">
+            <span class="project-num">03</span>
+            <span class="project-type">Machine Learning</span>
+          </div>
+          <h3 class="project-title">Predicting Student Depression Risk</h3>
+          <p class="project-description">
+            ML pipeline on 27,000+ student records using Random Forest, Logistic Regression,
+            and XGBoost to flag early depression signals. Engineered features through encoding,
+            binning, and interaction variables.
+          </p>
+          <div class="project-stack">
+            <span>Python</span><span>scikit-learn</span><span>XGBoost</span><span>Pandas</span>
+          </div>
+          <div class="project-metrics">
+            <div><strong>87%</strong> Accuracy</div>
+            <div><strong>88%</strong> Recall</div>
+            <div><strong>0.92</strong> AUC</div>
+          </div>
+          <div class="project-card-link">
+            <a href="depression-risk-ml.html">Read full case study →</a>
+          </div>
+        </article>
+
+        <!-- Project 4: Quant Finance -->
+        <article class="project-card reveal">
+          <div class="project-meta">
+            <span class="project-num">04</span>
+            <span class="project-type">Quantitative Finance</span>
+          </div>
+          <h3 class="project-title">Earnings &amp; Stock Price Movement Analysis</h3>
+          <p class="project-description">
+            Cross-sector study of how earnings announcements move equity prices. Pulled
+            historical data via Yahoo Finance API, ran regression and trading-volume analysis
+            to correlate earnings surprises with post-announcement returns.
+          </p>
+          <div class="project-stack">
+            <span>Python</span><span>Yahoo Finance API</span><span>Pandas</span><span>Matplotlib</span>
+          </div>
+        </article>
+
+        <!-- Project 5: Data Science -->
+        <article class="project-card reveal">
+          <div class="project-meta">
+            <span class="project-num">05</span>
+            <span class="project-type">Data Science</span>
+          </div>
+          <h3 class="project-title">Amazon Sales — Pricing &amp; Behavior</h3>
+          <p class="project-description">
+            Analyzed 10,000+ Amazon transactions to surface pricing patterns and customer
+            segments. K-Means clustering for personas, Random Forest for category prediction,
+            and regression on revenue drivers.
+          </p>
+          <div class="project-stack">
+            <span>MySQL</span><span>Python</span><span>Tableau</span><span>scikit-learn</span>
+          </div>
+          <div class="project-metrics">
+            <div><strong>87%</strong> RF Accuracy</div>
+            <div><strong>0.72</strong> R²</div>
+            <div><strong>10K+</strong> Records</div>
+          </div>
+        </article>
+
+        <!-- Project 6: BI -->
+        <article class="project-card reveal">
+          <div class="project-meta">
+            <span class="project-num">06</span>
+            <span class="project-type">Business Intelligence</span>
+          </div>
+          <h3 class="project-title">Myntra USA Market Expansion</h3>
+          <p class="project-description">
+            BI workstream evaluating Myntra's hypothetical entry into the US apparel market.
+            Built dashboards on regional demand, customer segmentation, and competitor
+            pricing — feeding a go/no-go strategy recommendation.
+          </p>
+          <div class="project-stack">
+            <span>Tableau</span><span>Power BI</span><span>Azure</span><span>SQL</span>
+          </div>
+        </article>
+
+        <!-- Project 7: Research -->
+        <article class="project-card reveal">
+          <div class="project-meta">
+            <span class="project-num">07</span>
+            <span class="project-type">Mixed-Methods Research</span>
+          </div>
+          <h3 class="project-title">Student Class Participation Analysis</h3>
+          <p class="project-description">
+            Quant + qual research on classroom engagement at WPI. Designed surveys in
+            Qualtrics, ran interviews, used NVivo thematic coding to build personas
+            and recommend engagement interventions.
+          </p>
+          <div class="project-stack">
+            <span>Qualtrics</span><span>NVivo 12 Plus</span><span>Excel</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Certifications -->
+  <section class="section section-alt" id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">04 · Education &amp; Certifications</span>
+        <h2 class="section-title">The path so far.</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Aug 2024 — May 2026</div>
+            <h3>Master of Science, Financial Technology</h3>
+            <p class="timeline-org">Worcester Polytechnic Institute · Worcester, MA</p>
+            <p class="timeline-detail">GPA 3.7 / 4.0 · Coursework: Financial Analytics, Blockchain, Business Intelligence, Data Management for Analytics, Marketing Research, Machine Learning Applications</p>
+          </div>
+        </div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <div class="timeline-date">Dec 2020 — May 2024</div>
+            <h3>Bachelor of Commerce, Chartered Accountancy</h3>
+            <p class="timeline-org">Noble Degree &amp; PG College · Hyderabad, India</p>
+            <p class="timeline-detail">CGPA 8.0 / 10.0 · Foundations in financial reporting, audit, taxation, and corporate accounting.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-section reveal">
+        <h3 class="cert-title">Certifications</h3>
+        <div class="cert-grid">
+          <div class="cert-card">
+            <div class="cert-icon">📊</div>
+            <h4>Data Analytics &amp; Visualization</h4>
+            <p>Accenture Job Simulation</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">💼</div>
+            <h4>SAP Finance &amp; Controlling (FI-CO)</h4>
+            <p>Power User Course Certificate</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">📈</div>
+            <h4>Microsoft Office Intermediate</h4>
+            <p>Word, Excel, PowerPoint</p>
+          </div>
+          <div class="cert-card">
+            <div class="cert-icon">🎓</div>
+            <h4>International Conference of CA Students</h4>
+            <p>ICAI, Hyderabad — Dec 2022</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card reveal">
+        <span class="section-tag">05 · Get In Touch</span>
+        <h2 class="contact-title">Let's build something meaningful.</h2>
+        <p class="contact-sub">
+          I'm actively looking for full-time roles in <strong>data analytics, FinTech engineering,
+          blockchain development, and quantitative research</strong>. Whether you have a role,
+          a project, or just want to chat about markets and code — my inbox is open.
+        </p>
+        <div class="contact-actions">
+          <a href="mailto:vsaikrishna2024@gmail.com" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Email Me
+          </a>
+          <a href="tel:+17744370403" class="btn btn-ghost btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call Me
+          </a>
+        </div>
+        <div class="contact-socials">
+          <a href="mailto:vsaikrishna2024@gmail.com" class="social-link" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/saikrishnavaddeboina/" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          </a>
+          <a href="https://github.com/SaiKrishnaVaddeboina" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.69.08-.69 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.18 1.18a11 11 0 015.79 0c2.21-1.49 3.18-1.18 3.18-1.18.62 1.58.23 2.75.11 3.04.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.41-5.27 5.69.41.36.78 1.06.78 2.13v3.16c0 .31.21.68.8.56C20.21 21.39 23.5 17.08 23.5 12 23.5 5.65 18.35.5 12 .5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> Sai Krishna Vaddeboina. Built with care in Worcester, MA.</p>
+      <p class="footer-meta">Designed &amp; coded from scratch — no templates.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
