@@ -712,6 +712,109 @@ body {
   color: var(--text-mute);
   font-family: 'JetBrains Mono', monospace;
 }
+
+.project-card-link {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.project-card-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  transition: gap var(--transition);
+}
+.project-card-link a:hover { gap: 12px; }
+
+/* ============= Now / Currently Working On ============= */
+.now-section {
+  padding: 80px 0;
+  background: var(--bg-elev);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.now-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .now-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+.now-heading h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 14px 0 16px;
+  line-height: 1.15;
+}
+.now-heading p {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+.now-pulse {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 12px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+.now-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.now-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+.now-item:last-child { border-bottom: none; }
+.now-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--gradient-soft);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+.now-text h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.now-text p {
+  font-size: 14px;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.6;
+}
+.now-text .now-meta {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11.5px;
+  color: var(--text-mute);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+}
 .project-stack {
   display: flex;
   flex-wrap: wrap;
