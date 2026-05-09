@@ -17,15 +17,19 @@
     link.addEventListener('click', () => navLinks.classList.remove('open'))
   );
 
-  // --- Theme toggle (persists in localStorage) ---
+  // --- Theme toggle (light is default, dark is opt-in, persists in localStorage) ---
   const themeToggle = document.getElementById('themeToggle');
   const stored = localStorage.getItem('theme');
-  if (stored) document.documentElement.dataset.theme = stored;
+  if (stored === 'dark') document.documentElement.dataset.theme = 'dark';
   themeToggle?.addEventListener('click', () => {
-    const current = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
-    const next = current === 'light' ? 'dark' : 'light';
-    document.documentElement.dataset.theme = next;
-    localStorage.setItem('theme', next);
+    const isDark = document.documentElement.dataset.theme === 'dark';
+    if (isDark) {
+      delete document.documentElement.dataset.theme;
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.dataset.theme = 'dark';
+      localStorage.setItem('theme', 'dark');
+    }
   });
 
   // --- Scroll reveal via IntersectionObserver ---
